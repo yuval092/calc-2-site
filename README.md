@@ -5,13 +5,26 @@ rendered exactly as written (KaTeX), right-to-left, with no network needed excep
 the two Google web fonts (the page falls back to system fonts offline).
 
 ## Open it
-Open `dist/index.html` in any modern browser. It is one self-contained file
+Open `index.html` in any modern browser. It is one self-contained file
 (all code, math fonts and chapter text inside). Progress marks ("למדתי", "לחזרה")
 and display settings are stored in that browser's localStorage.
 
+## Publishing (GitHub Pages)
+The site is published from the `main` branch, root folder. GitHub Pages is already
+configured that way; just push and the rebuilt `index.html` goes live at
+<https://yuval092.github.io/calc-2-site/> (usually within a minute).
+
+```
+python3 build.py     # rebuild the site into ./index.html
+git add index.html && git commit -m "Rebuild site" && git push
+```
+
+`index.html` at the repo root is the deployed page, so it must be committed.
+`.nojekyll` tells Pages to serve the files as-is (no Jekyll processing).
+
 ## Folder layout
 ```
-build.py            builds dist/index.html (Python 3, no packages, no npm)
+build.py            builds index.html (Python 3, no packages, no npm)
 content/            your chapters: unit-1.md … unit-7.md (+ optional formulas.md, cheatsheets.md)
 src/index.html      page shell: header, sidebar, placeholders
 src/css/*.css       styles, concatenated in file-name order (palette.css = colours, widgets2.css = new widgets)
@@ -23,13 +36,14 @@ src/js/*.js         app code, concatenated in file-name order into one closure
 content/annotations/unit-N.txt   importance levels, reasons, key phrases, key formulas
 content/calc1/unit-N.md          Calculus 1 units, reference material only (see below)
 vendor/             KaTeX 0.16 (+ fonts) and marked 18, inlined at build time
-dist/index.html     the built site
+index.html          the built site (committed; served by GitHub Pages)
+.nojekyll           disables Jekyll processing on GitHub Pages
 ```
 
 ## Add a chapter
 1. Save it as `content/unit-8.md` (the number is the unit number; raise `UNIT_COUNT` in `src/js/00-config.js` above 7).
 2. Run `python3 build.py`.
-3. Open `dist/index.html`. The unit appears in the sidebar, search, quick jump and export.
+3. Open `index.html`. The unit appears in the sidebar, search, quick jump and export.
 
 ## Markdown conventions the site understands
 * `# יחידה N: title` – unit title; the following lines are the unit intro.

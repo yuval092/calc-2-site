@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Build the study site into ONE self-contained HTML file: dist/index.html
+Build the study site into ONE self-contained HTML file: index.html (repo root,
+which is what GitHub Pages serves).
 
     python3 build.py
 
@@ -232,9 +233,8 @@ def main():
                 .replace('<!--__CONTENT__-->', '\n'.join(blocks))
                 .replace('//__VENDOR_JS__', vjs)
                 .replace('//__APP_JS__', js))
-    os.makedirs(P('dist'), exist_ok=True)
-    open(P('dist', 'index.html'), 'w', encoding='utf-8').write(out)
-    print('built dist/index.html  (%d KB, %d unit(s))' % (len(out.encode()) // 1024, len(units)))
+    open(P('index.html'), 'w', encoding='utf-8').write(out)
+    print('built index.html  (%d KB, %d unit(s))' % (len(out.encode()) // 1024, len(units)))
     if report: print('annotations:'); print('\n'.join(report))
     if problems:
         print('annotation problems (%d):' % len(problems)); print('\n'.join('  ' + p for p in problems))
