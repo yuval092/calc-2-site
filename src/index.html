@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>חשבון אינפיניטיסמלי 2 — מחברת לימוד</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=IBM+Plex+Sans+Hebrew:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/*__VENDOR_CSS__*/
+</style>
+<style>
+/*__APP_CSS__*/
+</style>
+</head>
+<body>
+<header class="topbar">
+  <button class="iconbtn menubtn" id="menuBtn" aria-label="פתיחת תפריט הניווט"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  <div class="brand"><b>חשבון אינפיניטיסמלי 2</b><span>מחברת לימוד למבחן</span></div>
+  <nav class="tabs" id="tabs" aria-label="דפי האתר">
+    <a href="#/u1" data-page="units">חומר הלימוד</a>
+    <a href="#/important" data-page="important">חשוב למבחן</a>
+    <a href="#/formulas" data-page="formulas">דף נוסחאות</a>
+    <a href="#/cheatsheets" data-page="cheatsheets">דפי סיכום</a>
+    <a href="#/exams" data-page="exams">מבחנים</a>
+  </nav>
+  <div class="spacer"></div>
+  <div class="search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="q" type="search" placeholder="חיפוש: מושג, מספר משפט, נוסחה…" autocomplete="off" aria-label="חיפוש בחומר">
+    <kbd>/</kbd>
+  </div>
+  <button type="button" class="iconbtn hbtn" data-open="palette" aria-label="קפיצה מהירה לפריט או סעיף (Ctrl+K)" title="קפיצה מהירה (Ctrl+K)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 4.8-4.8 2.2 2.2-4.8z"/></svg></button>
+  <button type="button" class="iconbtn hbtn" data-open="export" aria-label="ייצוא ל-Markdown" title="ייצוא ל-Markdown (E)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></button>
+  <button type="button" class="iconbtn aa" data-open="settings" aria-label="הגדרות תצוגה" title="הגדרות תצוגה">Aa</button>
+</header>
+
+<div class="layout">
+  <aside class="side" id="side" aria-label="ניווט">
+    <nav class="mtabs" id="mtabs" aria-label="דפי האתר">
+      <a href="#/u1" data-page="units">חומר הלימוד</a>
+      <a href="#/important" data-page="important">חשוב למבחן</a>
+      <a href="#/formulas" data-page="formulas">דף נוסחאות</a>
+      <a href="#/cheatsheets" data-page="cheatsheets">דפי סיכום</a>
+      <a href="#/exams" data-page="exams">מבחנים</a>
+    </nav>
+    <div class="sidetools">
+      <button type="button" data-open="palette">קפיצה מהירה לפריט</button>
+      <button type="button" data-open="export">ייצוא ל-Markdown</button>
+    </div>
+    <h3>יחידות</h3>
+    <ul class="units" id="unitList"></ul>
+    <details class="refbox" id="refBox" hidden><summary>אינפי 1 · חומר עזר</summary><ul class="units ref" id="refList"></ul></details>
+    <h3 id="treeTitle">תוכן היחידה</h3>
+    <ul class="tree" id="tree"></ul>
+    <button type="button" class="keyslink" data-open="keys">קיצורי מקלדת <kbd>?</kbd></button>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+  <main class="main" id="main"></main>
+</div>
+<button class="iconbtn totop" id="toTop" aria-label="חזרה לראש העמוד"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<!-- CONTENT: build.py inserts one <script type="text/markdown" data-unit="N"> per content/unit-N.md
+     and data-page="formulas" / "cheatsheets" blocks when content/formulas.md / cheatsheets.md exist. -->
+<!--__CONTENT__-->
+
+<script>
+//__VENDOR_JS__
+</script>
+<script>
+(function(){
+"use strict";
+//__APP_JS__
+})();
+</script>
+</body>
+</html>

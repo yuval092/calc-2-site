@@ -1,0 +1,70 @@
+/* ================= styles for the widgets in 62-65 ================= */
+:root{ --w-pos:#2A6FDB; --w-neg:#D1453B; --w-ok:#2D7747; --w-bad:#B8365E; --w-vio:#7B4BC4; }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --w-pos:#7FA8F5; --w-neg:#F08A80; --w-ok:#6FCB8F; --w-bad:#F08AAB; --w-vio:#C2A4F5; } }
+:root[data-theme="dark"]{ --w-pos:#7FA8F5; --w-neg:#F08A80; --w-ok:#6FCB8F; --w-bad:#F08AAB; --w-vio:#C2A4F5; }
+.widget{ border-color:color-mix(in srgb, var(--uc, var(--accent)) 30%, var(--rule)); }
+.widget .wh{ padding-bottom:6px; }
+.widget .wh b{ color:var(--uc, var(--ink)); }
+.widget .pbg{ fill:color-mix(in srgb, var(--surface-2) 70%, transparent); }
+.widget .pbg.clear{ fill:none; }
+.widget .a-pos{ fill:color-mix(in srgb, var(--w-pos) 24%, transparent); }
+.widget .a-neg{ fill:color-mix(in srgb, var(--w-neg) 24%, transparent); }
+.widget .w-rect{ fill:color-mix(in srgb, var(--upper) 16%, transparent); stroke:var(--upper); stroke-width:1.5; stroke-dasharray:6 4; }
+.widget .w-avg{ stroke:var(--upper); stroke-width:1.5; }
+.widget .w-avgl, .widget .w-liml{ fill:var(--upper); font-weight:600; }
+.widget .w-liml2{ fill:var(--ink-3); }
+.widget .w-guide{ stroke:var(--ink-3); stroke-width:1; stroke-dasharray:3 4; }
+.widget .w-pt{ fill:var(--ink); }
+.widget .w-pt2{ fill:var(--upper); stroke:var(--surface); stroke-width:2; }
+.widget .w-open{ fill:var(--surface); stroke:var(--ink); stroke-width:2; }
+.widget .w-tan{ stroke:var(--w-vio); stroke-width:2.4; }
+.widget .w-F{ stroke:var(--uc, var(--accent)); }
+.widget .w-strong{ fill:var(--ink); font-weight:700; }
+.widget .w-cap{ font-size:.72rem; color:var(--ink-3); padding:4px 6px 0; direction:rtl; }
+.widget .w-note{ font-size:.8rem; color:var(--ink-2); line-height:1.6; }
+.widget .w-ok{ color:var(--w-ok); font-weight:600; } .widget .w-bad{ color:var(--w-bad); font-weight:600; }
+.widget .read div .w-ok, .widget .read div .w-bad{ font-size:.82rem; }
+.widget .w-bar{ fill:color-mix(in srgb, var(--w-pos) 30%, transparent); } .widget .w-bar.neg{ fill:color-mix(in srgb, var(--w-neg) 30%, transparent); }
+.widget .w-sn{ fill:none; stroke:var(--upper); stroke-width:2; }
+.widget .w-dot{ fill:var(--upper); }
+.widget .w-lim{ stroke:var(--w-ok); stroke-width:2; stroke-dasharray:8 5; }
+.widget .w-lim2{ stroke:var(--ink-3); stroke-width:1.2; stroke-dasharray:3 4; }
+.widget .w-orig{ fill:none; stroke:var(--ink-3); stroke-width:1.4; opacity:.7; }
+.widget .w-up{ fill:color-mix(in srgb, var(--upper) 20%, transparent); stroke:var(--upper); stroke-width:1; }
+.widget .w-dn{ fill:color-mix(in srgb, var(--w-pos) 28%, transparent); stroke:var(--w-pos); stroke-width:1; }
+.widget .w-band{ fill:color-mix(in srgb, var(--w-ok) 14%, transparent); }
+.widget .w-odd{ fill:var(--upper); } .widget .w-even{ fill:var(--w-pos); }
+.widget .w-epsband{ fill:color-mix(in srgb, var(--w-ok) 17%, transparent); stroke:color-mix(in srgb, var(--w-ok) 55%, transparent); stroke-width:1; }
+.widget .w-fn{ fill:none; stroke:var(--upper); stroke-width:2.3; }
+.widget .w-fn.out{ stroke:var(--w-neg); }
+.widget .w-par2{ fill:none; stroke:var(--w-vio); stroke-width:2.3; stroke-dasharray:6 4; }
+.widget .w-conv{ fill:color-mix(in srgb, var(--w-ok) 10%, transparent); }
+.widget .w-endc{ fill:var(--w-ok); } .widget .w-endo{ fill:var(--surface); stroke:var(--w-ok); stroke-width:2; }
+.widget .w-grid{ stroke:var(--rule-2); stroke-width:1; }
+.widget .w-vu{ stroke:var(--w-pos); stroke-width:3; fill:var(--w-pos); } .widget .w-vv{ stroke:var(--upper); stroke-width:3; fill:var(--upper); }
+.widget .w-vs{ stroke:var(--w-ok); stroke-width:2.4; fill:var(--w-ok); } .widget .w-vp{ stroke:var(--w-vio); stroke-width:2.4; fill:var(--w-vio); }
+.widget .head{ stroke-width:1; }
+.widget .w-parl{ fill:none; stroke:var(--w-ok); stroke-width:1.2; stroke-dasharray:5 4; }
+.widget .w-arc{ fill:none; stroke:var(--ink-2); stroke-width:1.4; }
+.widget .w-handle{ fill:transparent; cursor:grab; }
+.widget .w-cu{ color:var(--w-pos); } .widget .w-cv{ color:var(--upper); }
+.widget .w-meter{ height:6px; border-radius:3px; background:var(--rule-2); margin:6px 0 4px; overflow:hidden; } .widget .w-meter i{ display:block; height:100%; background:var(--w-ok); }
+.widget .w-sq{ max-width:440px; margin:0 auto; touch-action:none; }
+.widget .w-sq svg, .widget .w-two svg{ touch-action:none; }
+.widget .w-two{ display:grid; grid-template-columns:1fr 1fr; gap:10px; align-items:start; }
+.widget .w-path{ stroke:var(--upper); stroke-width:2.5; } .widget .w-path2{ fill:none; stroke:var(--w-vio); stroke-width:2.5; stroke-dasharray:6 4; }
+.widget .w-grad{ stroke:var(--w-ok); stroke-width:3; fill:var(--w-ok); } .widget .w-dir{ stroke:var(--w-vio); stroke-width:2.6; fill:var(--w-vio); }
+.widget .w-crit{ stroke:var(--surface); stroke-width:2; } .widget .w-crit.min{ fill:var(--w-ok); } .widget .w-crit.max{ fill:var(--w-neg); } .widget .w-crit.saddle{ fill:var(--w-vio); } .widget .w-crit.none{ fill:var(--ink-3); }
+.widget .w-crit-l{ display:inline-block; margin:2px 0 2px 12px; padding:1px 8px; border-radius:8px; font-size:.8rem; }
+.widget .w-crit-l.min{ background:color-mix(in srgb, var(--w-ok) 15%, transparent); } .widget .w-crit-l.max{ background:color-mix(in srgb, var(--w-neg) 15%, transparent); } .widget .w-crit-l.saddle{ background:color-mix(in srgb, var(--w-vio) 15%, transparent); }
+.widget .plot > svg, .widget .w-two > div > svg{ max-height:420px; }
+.widget i.lg{ display:inline-block; width:18px; height:4px; border-radius:2px; vertical-align:middle; margin-inline-end:4px; }
+.lg-sn, .lg-fn{ background:var(--upper); } .lg-bar{ background:color-mix(in srgb, var(--w-pos) 45%, transparent); height:8px !important; } .lg-lim{ background:var(--w-ok); } .lg-f{ background:var(--ink); } .lg-band{ background:color-mix(in srgb, var(--w-ok) 30%, transparent); height:10px !important; }
+.widget [hidden]{ display:none !important; }
+@media (max-width:560px){ .widget .w-two{ grid-template-columns:1fr; } .widget input[type=range]{ width:120px; } }
+/* readout: bordered cells on a plain background (no grey holes when a row is not full) */
+.widget .read{ background:var(--surface); gap:0; }
+.widget .read::after{ display:none; }
+.widget .read div{ border-top:1px solid var(--rule-2); border-inline-start:1px solid var(--rule-2); }
+.widget .lgi{ display:inline-flex; align-items:center; gap:4px; white-space:nowrap; margin-inline-end:14px; }
+.widget bdi{ unicode-bidi:isolate; }

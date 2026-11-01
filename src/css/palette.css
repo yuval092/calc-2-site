@@ -1,0 +1,77 @@
+/* ================= colour: per-unit hues, coloured field labels, tinted answers ================= */
+:root{ --u1:#2A55B8; --u2:#0B7580; --u3:#6E3FA6; --u4:#2D7747; --u5:#B8365E; --u6:#B8621A; --u7:#1F78A8; --uc:var(--accent); --warn:#B8365E; }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --u1:#7FA2F0; --u2:#4FC1C9; --u3:#B89AF0; --u4:#6FCB8F; --u5:#F08AAB; --u6:#F0A45C; --u7:#6CC0EA; --warn:#F08AAB; } }
+:root[data-theme="dark"]{ --u1:#7FA2F0; --u2:#4FC1C9; --u3:#B89AF0; --u4:#6FCB8F; --u5:#F08AAB; --u6:#F0A45C; --u7:#6CC0EA; --warn:#F08AAB; }
+[data-unit="1"]{ --uc:var(--u1); } [data-unit="2"]{ --uc:var(--u2); } [data-unit="3"]{ --uc:var(--u3); } [data-unit="4"]{ --uc:var(--u4); }
+[data-unit="5"]{ --uc:var(--u5); } [data-unit="6"]{ --uc:var(--u6); } [data-unit="7"]{ --uc:var(--u7); }
+
+/* unit hero: a band of the unit's hue behind the grid */
+main [data-unit] .hero{ background-color:color-mix(in srgb, var(--uc) 7%, var(--surface));
+  background-image:linear-gradient(color-mix(in srgb, var(--uc) 9%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--uc) 9%, transparent) 1px, transparent 1px);
+  border-bottom:3px solid color-mix(in srgb, var(--uc) 55%, transparent); }
+main [data-unit] .hero .kicker{ color:var(--uc); font-weight:600; }
+main [data-unit] .partition .seg rect.fill{ fill:color-mix(in srgb, var(--uc) 30%, transparent); stroke:var(--uc); }
+main [data-unit] .sec-h.d1 h2 .num{ background:var(--uc); }
+main [data-unit] .sec-h.d1{ padding-bottom:10px; border-bottom:2px solid color-mix(in srgb, var(--uc) 35%, transparent); }
+main [data-unit] .sec-h.d2 h3 .num{ color:var(--uc); }
+main [data-unit] .toolbar{ border-top:2px solid color-mix(in srgb, var(--uc) 45%, transparent); }
+
+/* sidebar: every unit number in its own hue */
+#unitList li:nth-child(1){ --uc:var(--u1); } #unitList li:nth-child(2){ --uc:var(--u2); } #unitList li:nth-child(3){ --uc:var(--u3); } #unitList li:nth-child(4){ --uc:var(--u4); }
+#unitList li:nth-child(5){ --uc:var(--u5); } #unitList li:nth-child(6){ --uc:var(--u6); } #unitList li:nth-child(7){ --uc:var(--u7); }
+#unitList a .n{ background:color-mix(in srgb, var(--uc) 16%, var(--surface)) !important; color:var(--uc) !important; }
+#unitList a[aria-current="true"] .n{ background:var(--uc) !important; color:var(--surface) !important; }
+#unitList a[aria-current="true"]{ box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--uc) 45%, transparent); }
+.tree .secrow a .num{ color:var(--uc, var(--accent)); }
+
+/* cards: a soft tint for every type, a stronger tint on the header row */
+.item.example{ background:color-mix(in srgb, var(--ex) 4%, var(--surface)); box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--ex) 16%, transparent); }
+.item.question{ background:color-mix(in srgb, var(--q) 4%, var(--surface)); box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--q) 16%, transparent); }
+.item .item-h{ margin:-16px -20px 0 -18px; padding:12px 20px 8px 18px; border-radius:inherit; background:linear-gradient(180deg, color-mix(in srgb, var(--c) 9%, transparent), transparent); }
+.item .tw{ color:var(--c); }
+
+/* field labels as coloured pills */
+.seg-label{ display:inline-block; padding:1px 10px; border-radius:999px; font-size:.72rem; margin-bottom:4px; color:var(--lc, var(--ink-2)); background:color-mix(in srgb, var(--lc, var(--ink-3)) 13%, transparent); }
+.seg-prompt{ --lc:var(--q); } .seg-answer{ --lc:var(--ex); } .seg-proof{ --lc:var(--thm); } .seg-aside{ --lc:var(--note); } .seg-warn{ --lc:var(--warn); } .seg-other{ --lc:var(--c, var(--accent)); }
+.item.question .answer .seg-label, .item.example .answer .seg-label{ color:var(--lc); }
+.seg.aside{ border-inline-start-color:color-mix(in srgb, var(--note) 45%, transparent); }
+.seg.aside .seg-label{ padding:0 8px; }
+.seg-warn .md{ border-inline-start:3px solid color-mix(in srgb, var(--warn) 55%, transparent); padding-inline-start:10px; }
+
+/* answers: a light green panel */
+.answer{ border-top:0; margin-top:14px; padding:10px 14px 8px; border-radius:10px; background:color-mix(in srgb, var(--ex) 6%, transparent); box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--ex) 18%, transparent); }
+.answer .seg.seg-answer:first-child .seg-label{ background:var(--ex); color:var(--surface); }
+
+/* blockquotes (warnings like «אזהרה קריטית למבחן») */
+.md blockquote{ border-inline-start:3px solid color-mix(in srgb, var(--warn) 55%, transparent); background:color-mix(in srgb, var(--warn) 5%, transparent); border-radius:0 8px 8px 0; padding:4px 12px; margin:10px 0; }
+[dir="rtl"] .md blockquote{ border-radius:8px 0 0 8px; }
+.md blockquote strong:first-child{ color:var(--warn); }
+@media (max-width:560px){ .item .item-h{ margin:-14px -14px 0 -14px; padding:12px 14px 8px; } }
+details.dupe>.item .item-h{ margin-top:-16px; }
+/* display formulas that still overflow after shrinking: fade the trailing edge so it is clear there is more */
+.katex-display.scrolls{ -webkit-mask-image:linear-gradient(to left, transparent 0, #000 28px); mask-image:linear-gradient(to left, transparent 0, #000 28px); padding-inline-end:4px; }
+@media (max-width:560px){ .md ul, .md ol{ padding-inline-start:1.15em; } .md li>ul, .md li>ol{ padding-inline-start:.9em; } }
+/* toast: with left:50% the automatic width was capped at half the viewport (narrow wrapped text on phones) */
+.toast{ width:max-content; }
+.tree li.sec.empty .tog{ visibility:hidden; }
+.tree li.sec.empty > .kids{ display:none; }
+/* header: keep every tab on one line between the phone/tablet menu (≤980px) and wide screens */
+.tabs a{ white-space:nowrap; }
+@media (max-width:1320px){ .brand span{ display:none; } .tabs a{ padding:6px 9px; } .search{ width:min(260px, 22vw); } }
+@media (max-width:1180px) and (min-width:981px){ .tabs{ margin-inline-start:6px; } .tabs a{ padding:6px 7px; font-size:.8rem; } .search{ width:150px; } .search kbd{ display:none; } }
+/* ---------- Calculus 1 reference units: neutral colour, no progress UI ---------- */
+body.in-ref{ --uc:#6B7485; }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) body.in-ref{ --uc:#A3ACBB; } }
+:root[data-theme="dark"] body.in-ref{ --uc:#A3ACBB; }
+body.in-ref main [data-unit]{ --uc:inherit; }
+.refnote{ margin-top:18px; padding:10px 14px; border-radius:10px; font-family:var(--sans); font-size:.84rem; line-height:1.7; color:var(--ink-2);
+  background:color-mix(in srgb, var(--uc) 9%, var(--surface)); box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--uc) 30%, transparent); }
+.refnote b{ color:var(--ink); }
+body.in-ref .learn, body.in-ref label:has(#unlearnedT), body.in-ref .tree .cnt, body.in-ref [data-prog]{ display:none !important; }
+.refbox{ margin:4px 0 2px; font-family:var(--sans); }
+.refbox > summary{ cursor:pointer; list-style:none; font-size:.74rem; font-weight:600; color:var(--ink-3); margin:14px 8px 6px; }
+.refbox > summary::before{ content:"▸"; display:inline-block; margin-inline-end:6px; transition:transform .15s; }
+[dir="rtl"] .refbox > summary::before{ content:"◂"; }
+.refbox[open] > summary::before{ transform:rotate(-90deg); }
+#refList a .n{ background:var(--surface-2); color:var(--ink-3); box-shadow:inset 0 0 0 1px var(--rule); }
+#refList a[aria-current="true"] .n{ background:#6B7485; color:var(--surface); }
